@@ -1,491 +1,522 @@
 <!DOCTYPE html>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-  <head>
-    <title>HimanshiBhambhani_Portfolio</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript
-      ><link rel="stylesheet" href="assets/css/noscript.css"
-    /></noscript>
-  </head>
-  <body class="is-preload">
-    <!-- Wrapper -->
-    <div id="wrapper">
-      <!-- Header -->
-      <header id="header">
-        <div class="logo">
-          <span class="icon fa-gem"></span>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Himanshi Bhambhani — Product-Minded Engineer</title>
+<meta name="description" content="Product-oriented engineer with 3+ years at Cisco. Building data-driven products for consumer & AI — user research, PRDs, experimentation, and shipped code." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0a0a0e;
+    --bg-soft:#101017;
+    --card:#13131c;
+    --card-hover:#181824;
+    --border:rgba(255,255,255,.08);
+    --border-strong:rgba(255,255,255,.14);
+    --text:#edecf2;
+    --muted:#9a9aab;
+    --muted-dim:#6d6d80;
+    --accent:#8b7cf6;
+    --accent-2:#c084fc;
+    --accent-soft:rgba(139,124,246,.14);
+    --emerald:#34d399;
+    --amber:#fbbf24;
+    --radius:18px;
+    --maxw:1080px;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* ambient background glow */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background:
+      radial-gradient(650px circle at 12% -5%, rgba(139,124,246,.16), transparent 55%),
+      radial-gradient(700px circle at 95% 8%, rgba(192,132,252,.10), transparent 50%),
+      radial-gradient(600px circle at 50% 110%, rgba(52,211,153,.06), transparent 55%);
+    pointer-events:none;z-index:0;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(10,10,14,.72);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .brand{font-weight:700;font-size:16px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{font-size:14px;color:var(--muted);transition:color .2s;font-weight:500}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{
+    font-size:13px!important;color:var(--text)!important;
+    border:1px solid var(--border-strong);padding:7px 16px;border-radius:999px;
+    transition:all .2s;
+  }
+  .nav-cta:hover{background:var(--accent-soft);border-color:var(--accent)}
+  .menu-btn{display:none;background:none;border:none;color:var(--text);font-size:22px;cursor:pointer}
+
+  /* ---------- HERO ---------- */
+  header{padding:90px 0 70px;position:relative}
+  .hero{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:13px;color:var(--muted);font-weight:500;
+    border:1px solid var(--border);padding:7px 15px;border-radius:999px;
+    margin-bottom:26px;background:rgba(255,255,255,.02);
+  }
+  .eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--emerald);box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pulse 2.2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.5)}70%{box-shadow:0 0 0 8px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+  h1{
+    font-family:'Fraunces',serif;
+    font-size:clamp(38px,6vw,62px);
+    line-height:1.04;letter-spacing:-.02em;font-weight:600;
+    margin-bottom:22px;
+  }
+  h1 .grad{
+    background:linear-gradient(120deg,var(--accent) 0%,var(--accent-2) 60%,#f0abfc 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .lead{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:560px;margin-bottom:34px}
+  .lead strong{color:var(--text);font-weight:600}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:13px 24px;border-radius:999px;font-size:15px;font-weight:600;
+    transition:all .2s;cursor:pointer;border:1px solid transparent;
+  }
+  .btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#0a0a0e}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(139,124,246,.6)}
+  .btn-ghost{border-color:var(--border-strong);color:var(--text)}
+  .btn-ghost:hover{background:rgba(255,255,255,.04);border-color:var(--accent)}
+  .hero-meta{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+  .hero-meta a{display:inline-flex;align-items:center;gap:7px;transition:color .2s}
+  .hero-meta a:hover{color:var(--accent)}
+
+  /* monogram card */
+  .monogram-wrap{position:relative}
+  .monogram{
+    width:230px;height:230px;border-radius:32px;position:relative;
+    background:linear-gradient(145deg,#1a1a26,#0e0e16);
+    border:1px solid var(--border-strong);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 30px 80px -30px rgba(139,124,246,.5), inset 0 1px 0 rgba(255,255,255,.06);
+    overflow:hidden;
+  }
+  .monogram::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 30% 20%, rgba(139,124,246,.25), transparent 60%);
+  }
+  .monogram span{
+    font-family:'Fraunces',serif;font-size:96px;font-weight:600;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    position:relative;
+  }
+  .float-badge{
+    position:absolute;background:var(--card);border:1px solid var(--border-strong);
+    border-radius:14px;padding:10px 14px;font-size:12px;font-weight:600;
+    display:flex;align-items:center;gap:8px;box-shadow:0 12px 30px -10px rgba(0,0,0,.7);
+  }
+  .float-badge .ic{font-size:15px}
+  .fb1{top:-18px;right:-26px;animation:floaty 5s ease-in-out infinite}
+  .fb2{bottom:-16px;left:-34px;animation:floaty 5s ease-in-out infinite .8s}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+  /* stat strip */
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+    margin-top:64px;padding-top:40px;border-top:1px solid var(--border);
+  }
+  .stat .num{font-family:'Fraunces',serif;font-size:34px;font-weight:600;letter-spacing:-.02em}
+  .stat .num .u{color:var(--accent)}
+  .stat .lbl{font-size:13px;color:var(--muted);margin-top:2px}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:70px 0;position:relative}
+  .sec-head{margin-bottom:42px}
+  .sec-tag{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+  .sec-title{font-family:'Fraunces',serif;font-size:clamp(28px,4vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+  .sec-sub{color:var(--muted);margin-top:14px;max-width:640px;font-size:16px}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:40px;align-items:start}
+  .about-body p{color:var(--muted);margin-bottom:18px;font-size:16px}
+  .about-body p strong{color:var(--text);font-weight:600}
+  .about-body .hl{color:var(--accent-2);font-weight:600}
+  .about-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:26px;
+  }
+  .about-card h4{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted-dim);margin-bottom:16px;font-weight:600}
+  .fact{display:flex;gap:13px;padding:11px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+  .fact:last-child{border-bottom:none}
+  .fact .ic{font-size:17px;margin-top:1px}
+  .fact .k{font-size:13px;color:var(--muted-dim)}
+  .fact .v{font-size:14px;font-weight:500}
+
+  /* skills */
+  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .skill-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:border-color .25s,transform .25s}
+  .skill-card:hover{border-color:var(--border-strong);transform:translateY(-3px)}
+  .skill-card .sc-head{display:flex;align-items:center;gap:11px;margin-bottom:16px}
+  .skill-card .sc-ic{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;background:var(--accent-soft);border:1px solid var(--border)}
+  .skill-card h4{font-size:16px;font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:12.5px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--muted);font-weight:500}
+  .chip:hover{color:var(--text);border-color:var(--accent)}
+
+  /* experience timeline */
+  .timeline{position:relative;padding-left:34px}
+  .timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),transparent)}
+  .exp{position:relative;margin-bottom:34px}
+  .exp::before{content:"";position:absolute;left:-33px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);box-shadow:0 0 0 4px rgba(139,124,246,.12)}
+  .exp .role{font-size:18px;font-weight:600}
+  .exp .co{color:var(--accent-2);font-weight:500;font-size:15px}
+  .exp .when{font-family:var(--mono);font-size:12.5px;color:var(--muted-dim);margin:3px 0 12px}
+  .exp ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .exp li{color:var(--muted);font-size:15px;padding-left:20px;position:relative}
+  .exp li::before{content:"▹";position:absolute;left:0;color:var(--accent)}
+
+  /* projects */
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .proj{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:28px;display:flex;flex-direction:column;transition:all .28s;position:relative;overflow:hidden;
+  }
+  .proj::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-soft),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
+  .proj:hover{transform:translateY(-5px);border-color:var(--border-strong);background:var(--card-hover)}
+  .proj:hover::after{opacity:1}
+  .proj-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .proj-ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:23px;background:linear-gradient(145deg,#1c1c28,#111119);border:1px solid var(--border-strong)}
+  .proj-badge{font-family:var(--mono);font-size:11px;padding:5px 10px;border-radius:999px;border:1px solid var(--border);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .proj h3{font-size:19px;font-weight:600;margin-bottom:4px;letter-spacing:-.01em}
+  .proj .ptype{font-size:13px;color:var(--accent-2);font-weight:500;margin-bottom:12px}
+  .proj p{color:var(--muted);font-size:14.5px;margin-bottom:18px;flex:1}
+  .proj-metrics{display:flex;gap:20px;margin-bottom:18px;flex-wrap:wrap}
+  .pm .n{font-family:'Fraunces',serif;font-size:22px;font-weight:600}
+  .pm .l{font-size:11.5px;color:var(--muted-dim);text-transform:uppercase;letter-spacing:.04em}
+  .proj-foot{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--border)}
+  .proj-tech{display:flex;gap:6px;flex-wrap:wrap}
+  .proj-tech span{font-size:11px;color:var(--muted-dim);font-family:var(--mono)}
+  .proj-link{font-size:13px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:5px;transition:gap .2s}
+  .proj:hover .proj-link{gap:9px}
+
+  /* contact */
+  .contact{
+    background:linear-gradient(145deg,var(--card),var(--bg-soft));
+    border:1px solid var(--border-strong);border-radius:26px;
+    padding:56px 40px;text-align:center;position:relative;overflow:hidden;
+  }
+  .contact::before{content:"";position:absolute;inset:0;background:radial-gradient(500px circle at 50% -20%,rgba(139,124,246,.18),transparent 60%)}
+  .contact-inner{position:relative;z-index:1}
+  .contact h2{font-family:'Fraunces',serif;font-size:clamp(28px,4vw,42px);font-weight:600;letter-spacing:-.02em;margin-bottom:16px}
+  .contact p{color:var(--muted);max-width:480px;margin:0 auto 30px;font-size:16px}
+  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  footer{padding:40px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted-dim);font-size:13px}
+  footer a{color:var(--muted)}
+  footer a:hover{color:var(--accent)}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;gap:40px}
+    .monogram-wrap{justify-self:center}
+    .stats{grid-template-columns:repeat(2,1fr);gap:26px}
+    .about-grid{grid-template-columns:1fr}
+    .skill-grid,.proj-grid{grid-template-columns:1fr}
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:60px;right:24px;left:24px;flex-direction:column;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px}
+    .menu-btn{display:block}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span>Himanshi Bhambhani</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="projects.html" class="nav-cta">View Projects ↗</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+  <!-- HERO -->
+  <header>
+    <div class="hero">
+      <div class="hero-left reveal in">
+        <span class="eyebrow"><span class="pulse"></span> Open to Product roles · 2026</span>
+        <h1>Engineer by training,<br><span class="grad">product by instinct.</span></h1>
+        <p class="lead">I'm a <strong>product-oriented engineer</strong> with 3+ years at Cisco — turning user pain points into shipped products. I pair <strong>hands-on engineering</strong> with <strong>product discovery</strong>, user research, and metrics-driven experimentation for consumer & AI products.</p>
+        <div class="hero-cta">
+          <a href="projects.html" class="btn btn-primary">Explore my work →</a>
+          <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">📄 Resume</a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
         </div>
-        <div class="content">
-          <div class="inner">
-            <h1>Himanshi Bhambhani</h1>
-            <p>Fourth Year, Computer Engineering Undergraduate</p>
-          </div>
+        <div class="hero-meta">
+          <a href="mailto:himanshibhambhani@gmail.com">✉️ Email</a>
+          <a href="https://www.linkedin.com/in/himanshi-bhambhani-0b5582202/" target="_blank" rel="noopener">💼 LinkedIn</a>
+          <a href="https://github.com/HimanshiBhambhani" target="_blank" rel="noopener">🐙 GitHub</a>
+          <span>📍 Bengaluru, India</span>
         </div>
-        <nav>
-          <ul>
-            <li><a href="#intro">About Me</a></li>
-            <li><a href="#work">My Projects</a></li>
-            <li><a href="#EducationandSkills">Education & Skills</a></li>
-            <li><a href="#about">Hobbies</a></li>
-            <li><a href="#contact">Contact Me</a></li>
-            <!--<li><a href="#elements">Elements</a></li>-->
-          </ul>
-        </nav>
-      </header>
-
-      <!-- Main -->
-      <div id="main">
-        <!-- Intro -->
-        <article id="intro">
-          <h2 class="major">About Me</h2>
-          <span class="image main"
-            ><img src="images/dimple_upidi.JPG" alt="Himanshi"
-          /></span>
-          <p>
-            Hey, a very walm welcome to my portfolio website. My name is
-            Himanshi Bhambhani and I'm currently pursuing Bachelor of
-            Engineering in Computer Engineering from Thapar University, Patiala.
-            And I belong to the city of lakes Udaipur, Rajasthan.
-          </p>
-          <p>
-		I'm an Inquisitive and ambitious computer engineer with a strong foundation in logic and coding.
-		I'm seeking to leverage solid skills in collaboration, communication, and development as a programmer
-		and looking for a role where I can use my skills to make an impact and  grow and learn from other experienced team leaders.
-          </p>
-        </article>
-
-        <!-- Work -->
-        <article id="work">
-          <h2 class="major">Projects</h2>
-		<h3>Project-1<h3>
-		<h2>Nadi-Rog-Nidan<h2> <h4> A pulse examination machine </h4>
-		<span class="image main"
-            ><img src="images/capstone.png" alt="Capstone"
-          /></span>
-          <p>
-		It is an automated system based on the non-invasive science of Ayurveda and is designed to detect ailments in the human body based
-		on diagnostic of the radial artery pulses: Vatta, Pitta & Kapha .<br>
-		STATUS - Ongoing Project <br>
-            <!--Click <a href="projects.html">here</a> to have at a look.-->
-          </p>	
-	<h3>Project-2<h3>
-	<h2>PATROL-PORTAL</h2><h4>Crime Reporting system</h4>
-          <span class="image main"
-            ><img src="images/patrol-portal.jpeg" alt="Patrol-Portal"/></span>
-          <p>
-		A web application to file and access police complaints.<br>
-		• The Portal keeps record of the complaints filed and updates their
-		status in the database.<br>
-		• Users with different level of authorisation can access the portal by
-		logging in with their accounts.<br>
-            Click <a href="http://patrol-portal.epizy.com/">here</a> to have at the website.
-          </p>
-          <!-- <p>
-          </p>
-          <span class="image main"
-          ><img src="images/dimple_upidi.JPG" alt=""
-          /></span>
-          <p>
-          </p>
-          <p>
-          </p> -->
-        </article>
-
-        <!-- About -->
-        <article id="about">
-          <h2 class="major">Photography</h2>
-          <span class="image main"
-            ><img src="images/kheerganga.jpg" alt=""
-          /></span>
-          <p>
-            I'm a huge fan of clicking pictures especially abstarct ones. I had
-            this huge craze of capturing photos when I just joined
-            college. Here is my collection of pictures that I've clicked and then
-            edited. To have a look click <a href="photography.html"> here</a>
-          </p>
-        </article>
-
-        <!-- Contact -->
-        <article id="contact">
-          <h2 class="major">Contact & Resume Details</h2>
-          <p>
-            Contact Number: +91-9413442722<br />
-            Email address : himanshibhambhani@gmail
-          </p>
-          <h3>
-            <u> Resume Details </u>
-          </h3>
-          <p>
-            Click <a href="Himanshi Bhambhani - Resume.pdf">here</a> to have a look
-            at my resume.
-          </p>
-          <ul class="icons">
-            <li>
-              <a href="https://www.linkedin.com/in/himanshi-bhambhani-0b5582202/" class="icon brands fa-linkedin"
-                ><span class="label">linkedin</span></a
-              >
-            </li>
-          </ul>
-        </article>
-
-        <!-- Skills -->
-        <article id="EducationandSkills">
-          <h2 class="major">Skills</h2>
-          <p>
-            <b>Programming Languages</b>: C, C++, SQL(Structured Query
-            Language), HTML, CSS (Intermediate)<br />
-            <b>Languages:</b> English, Hindi, French(Beginner)<br />
-            <b>Courses & Certifications: </b> Data Structures and Algorithms , Front-End Web-Development
-          </p>
-          <h2 class="major">Education</h2>
-          <p>
-            <b>Graduation</b> <i>(in progress)</i> : Thapar University,
-            Patiala<br />
-            Computer Engineering 2022 Batch<br />
-            <u>CGPA</u> : 8.33<br />
-            <b>Senior Secondary Education :</b> M.D.S Sr. Sec. School,
-            Udaipur<br />
-            <u>Percentage</u> : 88.2%<br />
-            <b>Primary and Secondary Education : </b> St.Mary's Convent,
-            Teetardi, Udaipur<br />
-            <u>CGPA</u> : 10
-          </p>
-        </article>
-
-        <!-- Elements -->
-        <article id="elements">
-          <h2 class="major">Elements</h2>
-
-          <section>
-            <h3 class="major">Text</h3>
-            <p>
-              This is <b>bold</b> and this is <strong>strong</strong>. This is
-              <i>italic</i> and this is <em>emphasized</em>. This is
-              <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-              This is <u>underlined</u> and this is code:
-              <code>for (;;) { ... }</code>. Finally,
-              <a href="#">this is a link</a>.
-            </p>
-            <hr />
-            <h2>Heading Level 2</h2>
-            <h3>Heading Level 3</h3>
-            <h4>Heading Level 4</h4>
-            <h5>Heading Level 5</h5>
-            <h6>Heading Level 6</h6>
-            <hr />
-            <h4>Blockquote</h4>
-            <blockquote>
-              Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis
-              sagittis eget tempus euismod. Vestibulum ante ipsum primis in
-              faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat
-              ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in
-              faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.
-            </blockquote>
-            <h4>Preformatted</h4>
-            <pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-          </section>
-
-          <section>
-            <h3 class="major">Lists</h3>
-
-            <h4>Unordered</h4>
-            <ul>
-              <li>Dolor pulvinar etiam.</li>
-              <li>Sagittis adipiscing.</li>
-              <li>Felis enim feugiat.</li>
-            </ul>
-
-            <h4>Alternate</h4>
-            <ul class="alt">
-              <li>Dolor pulvinar etiam.</li>
-              <li>Sagittis adipiscing.</li>
-              <li>Felis enim feugiat.</li>
-            </ul>
-
-            <h4>Ordered</h4>
-            <ol>
-              <li>Dolor pulvinar etiam.</li>
-              <li>Etiam vel felis viverra.</li>
-              <li>Felis enim feugiat.</li>
-              <li>Dolor pulvinar etiam.</li>
-              <li>Etiam vel felis lorem.</li>
-              <li>Felis enim et feugiat.</li>
-            </ol>
-            <h4>Icons</h4>
-            <ul class="icons">
-              <li>
-                <a href="#" class="icon brands fa-twitter"
-                  ><span class="label">Twitter</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands fa-facebook-f"
-                  ><span class="label">Facebook</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands fa-instagram"
-                  ><span class="label">Instagram</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands fa-github"
-                  ><span class="label">Github</span></a
-                >
-              </li>
-            </ul>
-
-            <h4>Actions</h4>
-            <ul class="actions">
-              <li><a href="#" class="button primary">Default</a></li>
-              <li><a href="#" class="button">Default</a></li>
-            </ul>
-            <ul class="actions stacked">
-              <li><a href="#" class="button primary">Default</a></li>
-              <li><a href="#" class="button">Default</a></li>
-            </ul>
-          </section>
-
-          <section>
-            <h3 class="major">Table</h3>
-            <h4>Default</h4>
-            <div class="table-wrapper">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Item One</td>
-                    <td>Ante turpis integer aliquet porttitor.</td>
-                    <td>29.99</td>
-                  </tr>
-                  <tr>
-                    <td>Item Two</td>
-                    <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                    <td>19.99</td>
-                  </tr>
-                  <tr>
-                    <td>Item Three</td>
-                    <td>Morbi faucibus arcu accumsan lorem.</td>
-                    <td>29.99</td>
-                  </tr>
-                  <tr>
-                    <td>Item Four</td>
-                    <td>Vitae integer tempus condimentum.</td>
-                    <td>19.99</td>
-                  </tr>
-                  <tr>
-                    <td>Item Five</td>
-                    <td>Ante turpis integer aliquet porttitor.</td>
-                    <td>29.99</td>
-                  </tr>
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <td colspan="2"></td>
-                    <td>100.00</td>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
-
-            <h4>Alternate</h4>
-            <div class="table-wrapper">
-              <table class="alt">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Item One</td>
-                    <td>Ante turpis integer aliquet porttitor.</td>
-                    <td>29.99</td>
-                  </tr>
-                  <tr>
-                    <td>Item Two</td>
-                    <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                    <td>19.99</td>
-                  </tr>
-                  <tr>
-                    <td>Item Three</td>
-                    <td>Morbi faucibus arcu accumsan lorem.</td>
-                    <td>29.99</td>
-                  </tr>
-                  <tr>
-                    <td>Item Four</td>
-                    <td>Vitae integer tempus condimentum.</td>
-                    <td>19.99</td>
-                  </tr>
-                  <tr>
-                    <td>Item Five</td>
-                    <td>Ante turpis integer aliquet porttitor.</td>
-                    <td>29.99</td>
-                  </tr>
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <td colspan="2"></td>
-                    <td>100.00</td>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
-          </section>
-
-          <section>
-            <h3 class="major">Buttons</h3>
-            <ul class="actions">
-              <li><a href="#" class="button primary">Primary</a></li>
-              <li><a href="#" class="button">Default</a></li>
-            </ul>
-            <ul class="actions">
-              <li><a href="#" class="button">Default</a></li>
-              <li><a href="#" class="button small">Small</a></li>
-            </ul>
-            <ul class="actions">
-              <li>
-                <a href="#" class="button primary icon solid fa-download"
-                  >Icon</a
-                >
-              </li>
-              <li>
-                <a href="#" class="button icon solid fa-download">Icon</a>
-              </li>
-            </ul>
-            <ul class="actions">
-              <li><span class="button primary disabled">Disabled</span></li>
-              <li><span class="button disabled">Disabled</span></li>
-            </ul>
-          </section>
-
-          <section>
-            <h3 class="major">Form</h3>
-            <form method="post" action="#">
-              <div class="fields">
-                <div class="field half">
-                  <label for="demo-name">Name</label>
-                  <input
-                    type="text"
-                    name="demo-name"
-                    id="demo-name"
-                    value=""
-                    placeholder="Jane Doe"
-                  />
-                </div>
-                <div class="field half">
-                  <label for="demo-email">Email</label>
-                  <input
-                    type="email"
-                    name="demo-email"
-                    id="demo-email"
-                    value=""
-                    placeholder="jane@untitled.tld"
-                  />
-                </div>
-                <div class="field">
-                  <label for="demo-category">Category</label>
-                  <select name="demo-category" id="demo-category">
-                    <option value="">-</option>
-                    <option value="1">Manufacturing</option>
-                    <option value="1">Shipping</option>
-                    <option value="1">Administration</option>
-                    <option value="1">Human Resources</option>
-                  </select>
-                </div>
-                <div class="field half">
-                  <input
-                    type="radio"
-                    id="demo-priority-low"
-                    name="demo-priority"
-                    checked
-                  />
-                  <label for="demo-priority-low">Low</label>
-                </div>
-                <div class="field half">
-                  <input
-                    type="radio"
-                    id="demo-priority-high"
-                    name="demo-priority"
-                  />
-                  <label for="demo-priority-high">High</label>
-                </div>
-                <div class="field half">
-                  <input type="checkbox" id="demo-copy" name="demo-copy" />
-                  <label for="demo-copy">Email me a copy</label>
-                </div>
-                <div class="field half">
-                  <input
-                    type="checkbox"
-                    id="demo-human"
-                    name="demo-human"
-                    checked
-                  />
-                  <label for="demo-human">Not a robot</label>
-                </div>
-                <div class="field">
-                  <label for="demo-message">Message</label>
-                  <textarea
-                    name="demo-message"
-                    id="demo-message"
-                    placeholder="Enter your message"
-                    rows="6"
-                  ></textarea>
-                </div>
-              </div>
-              <ul class="actions">
-                <li>
-                  <input type="submit" value="Send Message" class="primary" />
-                </li>
-                <li><input type="reset" value="Reset" /></li>
-              </ul>
-            </form>
-          </section>
-        </article>
       </div>
-
-      <!-- Footer -->
-      <footer id="footer">
-        <p>
-          Thankyou for taking the time to visit my website. Have a great day!!
-        </p>
-      </footer>
+      <div class="monogram-wrap reveal in">
+        <div class="monogram"><span>HB</span></div>
+        <div class="float-badge fb1"><span class="ic">🧪</span> n=47 user research</div>
+        <div class="float-badge fb2"><span class="ic">🚀</span> 4 products shipped</div>
+      </div>
     </div>
 
-    <!-- BG1 -->
-    <div id="bg1"></div>
+    <div class="stats">
+      <div class="stat reveal"><div class="num">3<span class="u">+</span></div><div class="lbl">Years at Cisco</div></div>
+      <div class="stat reveal"><div class="num">4</div><div class="lbl">End-to-end product projects</div></div>
+      <div class="stat reveal"><div class="num">8.47</div><div class="lbl">B.Tech CGPA</div></div>
+      <div class="stat reveal"><div class="num">35<span class="u">+</span></div><div class="lbl">Automated tests shipped</div></div>
+    </div>
+  </header>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-  </body>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-head reveal">
+      <div class="sec-tag">// about</div>
+      <h2 class="sec-title">From resolving live incidents to shaping what gets built.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-body reveal">
+        <p>I started in engineering — writing <strong>Java & PL/SQL</strong> for Oracle Agile PLM at Cisco, then owning enterprise <strong>SD-WAN and Meraki</strong> deployments as a customer-facing technical engineer. Those years taught me something most PMs learn late: <span class="hl">what it actually feels like to be on the other end of a broken product.</span></p>
+        <p>Resolving live enterprise incidents turned raw user pain into a habit of <strong>root-cause thinking</strong> — and converting those pain points into shipped process improvements gave me a taste for owning outcomes, not just tickets.</p>
+        <p>Today I channel that into <strong>data-driven product work</strong>: user research, problem framing, PRDs, KPI trees, and A/B experiments — backed by the technical fluency to build the thing myself. My four recent projects span a <span class="hl">consumer UX redesign, two full-stack AI products, and an MCP-based insights tool</span> — each taken from problem definition to a working prototype or deployment.</p>
+      </div>
+      <div class="about-card reveal">
+        <h4>At a glance</h4>
+        <div class="fact"><span class="ic">🎓</span><div><div class="k">Education</div><div class="v">B.Tech, Computer Engineering<br>Thapar Institute · CGPA 8.47</div></div></div>
+        <div class="fact"><span class="ic">🏢</span><div><div class="k">Current</div><div class="v">Software Engineer, Cisco Systems</div></div></div>
+        <div class="fact"><span class="ic">🎯</span><div><div class="k">Focus</div><div class="v">Product Management — consumer & AI</div></div></div>
+        <div class="fact"><span class="ic">📍</span><div><div class="k">Based in</div><div class="v">Bengaluru, Karnataka</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-head reveal">
+      <div class="sec-tag">// toolkit</div>
+      <h2 class="sec-title">Product thinking, backed by engineering.</h2>
+      <p class="sec-sub">The blend I bring: discovery and metrics on the front end, real code on the back end, and applied AI throughout.</p>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-card reveal">
+        <div class="sc-head"><div class="sc-ic">🧭</div><h4>Product & Discovery</h4></div>
+        <div class="chips">
+          <span class="chip">User Research</span><span class="chip">Problem Framing</span><span class="chip">PRD Writing</span><span class="chip">A/B Testing</span><span class="chip">KPI & Metrics</span><span class="chip">Prioritization</span><span class="chip">Roadmapping</span><span class="chip">Competitive Analysis</span><span class="chip">User Personas</span><span class="chip">Wireframing (Figma)</span><span class="chip">Launch Planning</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="sc-head"><div class="sc-ic">📊</div><h4>Data & Analysis</h4></div>
+        <div class="chips">
+          <span class="chip">SQL</span><span class="chip">PL/SQL</span><span class="chip">Funnel Metrics</span><span class="chip">Retention Analysis</span><span class="chip">Data-Driven Decisions</span><span class="chip">Experiment Design</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="sc-head"><div class="sc-ic">⚙️</div><h4>Engineering</h4></div>
+        <div class="chips">
+          <span class="chip">Java</span><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Next.js</span><span class="chip">REST APIs</span><span class="chip">Multithreading</span><span class="chip">Git / GitHub</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="sc-head"><div class="sc-ic">🤖</div><h4>AI & Applied ML</h4></div>
+        <div class="chips">
+          <span class="chip">RAG</span><span class="chip">LLM Integration</span><span class="chip">Llama 3.3</span><span class="chip">Gemini</span><span class="chip">Vector Search (ChromaDB)</span><span class="chip">Model Context Protocol</span><span class="chip">Prompt Engineering</span><span class="chip">LLM Safety Guardrails</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sec-head reveal">
+      <div class="sec-tag">// experience</div>
+      <h2 class="sec-title">3+ years at Cisco Systems.</h2>
+      <p class="sec-sub">A path from intern to backend engineer to customer-facing technical owner — collecting the customer empathy that now drives how I build product.</p>
+    </div>
+    <div class="timeline">
+      <div class="exp reveal">
+        <div class="role">Software Engineer</div>
+        <div class="co">Cisco Systems India · Bengaluru</div>
+        <div class="when">JUL 2024 — PRESENT</div>
+        <ul>
+          <li>Delivered business-driven Oracle Agile PLM features in Java, turning stakeholder needs into shipped workflows.</li>
+          <li>Optimized PL/SQL procedures behind Cisco's FAQMS backend, raising reliability of failure-analysis reporting.</li>
+          <li>Owned operational workflows across production monitoring, job creation, and system reliability at release.</li>
+          <li>Automated QA checks and ran sprint deliverables like TDD uploads, fixing production issues to guard quality.</li>
+        </ul>
+      </div>
+      <div class="exp reveal">
+        <div class="role">Technical Consulting Engineer</div>
+        <div class="co">Cisco Systems India</div>
+        <div class="when">AUG 2022 — JUL 2024</div>
+        <ul>
+          <li>Administered enterprise SD-WAN and Meraki deployments, ensuring reliable, customer-focused service delivery.</li>
+          <li>Diagnosed complex network faults, cutting downtime and lifting customer experience via root-cause fixes.</li>
+          <li>Championed user pain points as a customer-facing contact, driving process improvements for system reliability.</li>
+        </ul>
+      </div>
+      <div class="exp reveal">
+        <div class="role">Technical Undergraduate Intern</div>
+        <div class="co">Cisco Systems India</div>
+        <div class="when">JAN 2022 — JUL 2022</div>
+        <ul>
+          <li>Engineered a full-stack Python tool with SSH, REST calls, and multithreading to automate end-of-life audits.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="sec-head reveal">
+      <div class="sec-tag">// selected work</div>
+      <h2 class="sec-title">Four products, problem to prototype.</h2>
+      <p class="sec-sub">Each project taken end-to-end — discovery, definition, build, and a plan to measure. <a href="projects.html" style="color:var(--accent);font-weight:600">See the full deep-dives ↗</a></p>
+    </div>
+    <div class="proj-grid">
+
+      <a href="projects.html#voice" class="proj reveal">
+        <div class="proj-top"><div class="proj-ic">🎙️</div><span class="proj-badge">Product · UX</span></div>
+        <h3>ChatGPT Voice Input Redesign</h3>
+        <div class="ptype">Product Discovery · User Research · Experimentation</div>
+        <p>Grounded in n=47 research, I found black-box "capture anxiety" was the #1 barrier to voice input — and designed a <em>Live Transcription with Review</em> flow to fix it.</p>
+        <div class="proj-metrics">
+          <div class="pm"><div class="n">36%</div><div class="l">cite trust gap</div></div>
+          <div class="pm"><div class="n">n=47</div><div class="l">users researched</div></div>
+          <div class="pm"><div class="n">10–15%</div><div class="l">target lift</div></div>
+        </div>
+        <div class="proj-foot">
+          <div class="proj-tech"><span>Research</span><span>·</span><span>PRD</span><span>·</span><span>Figma</span><span>·</span><span>A/B</span></div>
+          <span class="proj-link">Deep dive →</span>
+        </div>
+      </a>
+
+      <a href="projects.html#burp" class="proj reveal">
+        <div class="proj-top"><div class="proj-ic">🍽️</div><span class="proj-badge">AI Product</span></div>
+        <h3>BURP — AI Recommendation Product</h3>
+        <div class="ptype">Concept to Deployment · Groq / Llama 3.3 70B</div>
+        <p>An AI recommender that turns five preference signals into ranked restaurant picks — built across six phases from problem definition to a live deployment.</p>
+        <div class="proj-metrics">
+          <div class="pm"><div class="n">21K+</div><div class="l">restaurants</div></div>
+          <div class="pm"><div class="n">35+</div><div class="l">automated tests</div></div>
+          <div class="pm"><div class="n">6</div><div class="l">delivery phases</div></div>
+        </div>
+        <div class="proj-foot">
+          <div class="proj-tech"><span>Groq</span><span>·</span><span>Llama 3.3</span><span>·</span><span>Vercel</span></div>
+          <span class="proj-link">Deep dive →</span>
+        </div>
+      </a>
+
+      <a href="projects.html#rag" class="proj reveal">
+        <div class="proj-top"><div class="proj-ic">💬</div><span class="proj-badge">Full-Stack AI</span></div>
+        <h3>Mutual Fund FAQ Assistant</h3>
+        <div class="ptype">Full-Stack RAG Product with Safety Guardrails</div>
+        <p>A RAG chatbot over a 437-chunk ChromaDB index — with multi-layer guardrails for PII, advisory refusal, and off-topic filtering, and a daily cron that re-scrapes 60 fund URLs.</p>
+        <div class="proj-metrics">
+          <div class="pm"><div class="n">437</div><div class="l">indexed chunks</div></div>
+          <div class="pm"><div class="n">60</div><div class="l">URLs / day</div></div>
+          <div class="pm"><div class="n">3</div><div class="l">guardrail layers</div></div>
+        </div>
+        <div class="proj-foot">
+          <div class="proj-tech"><span>FastAPI</span><span>·</span><span>ChromaDB</span><span>·</span><span>Next.js</span></div>
+          <span class="proj-link">Deep dive →</span>
+        </div>
+      </a>
+
+      <a href="projects.html#groww" class="proj reveal">
+        <div class="proj-top"><div class="proj-ic">📈</div><span class="proj-badge">MCP · Insights</span></div>
+        <h3>Groww Review Pulse</h3>
+        <div class="ptype">MCP Customer-Insights Product</div>
+        <p>A weekly review-pulse product that turns up to 1,500 Groww reviews into one-page stakeholder summaries — ingestion to theme analysis to MCP-based delivery.</p>
+        <div class="proj-metrics">
+          <div class="pm"><div class="n">1,500</div><div class="l">reviews / week</div></div>
+          <div class="pm"><div class="n">1-page</div><div class="l">exec summary</div></div>
+          <div class="pm"><div class="n">MCP</div><div class="l">delivery layer</div></div>
+        </div>
+        <div class="proj-foot">
+          <div class="proj-tech"><span>Python</span><span>·</span><span>MCP</span><span>·</span><span>PII scrubbing</span></div>
+          <span class="proj-link">Deep dive →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact reveal">
+      <div class="contact-inner">
+        <div class="sec-tag" style="justify-content:center">// let's talk</div>
+        <h2>Building something that needs product sense?</h2>
+        <p>I'm open to Product Management roles for consumer & AI products in 2026. If you're looking for someone who can research it, define it, and help build it — let's chat.</p>
+        <div class="contact-links">
+          <a href="mailto:himanshibhambhani@gmail.com" class="btn btn-primary">✉️ himanshibhambhani@gmail.com</a>
+          <a href="https://www.linkedin.com/in/himanshi-bhambhani-0b5582202/" target="_blank" rel="noopener" class="btn btn-ghost">💼 LinkedIn</a>
+          <a href="https://github.com/HimanshiBhambhani" target="_blank" rel="noopener" class="btn btn-ghost">🐙 GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    Designed & built with care · Himanshi Bhambhani © 2026 · Bengaluru, India<br>
+    <a href="mailto:himanshibhambhani@gmail.com">himanshibhambhani@gmail.com</a> · <a href="tel:+919413442722">+91 94134 42722</a>
+  </div>
+</footer>
+
+<script>
+  // mobile menu
+  const menuBtn=document.getElementById('menuBtn');
+  const navLinks=document.getElementById('navLinks');
+  menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+  // scroll reveal
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
 </html>
